@@ -4,10 +4,23 @@ let catalogProducts = [];
 let visibleProductCount = 0;
 let selectedProduct = null;
 let returnFocus = null;
+let photoSequence = 0;
 
 const byId = id => document.getElementById(id);
 const textValue = value => typeof value === "string" ? value.trim() : typeof value === "number" && Number.isFinite(value) ? String(value) : "";
 const escapeHtml = value => textValue(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+
+function productImageMarkup(photo, alt, useThumbnail = true) {
+  const src = escapeHtml(useThumbnail ? photo.thumbnail || photo.src : photo.src);
+  const crop = photo.crop;
+  if (crop && [crop.x, crop.y, crop.width, crop.height, crop.sourceWidth, crop.sourceHeight].every(Number.isFinite)
+      && crop.x >= 0 && crop.y >= 0 && crop.width > 0 && crop.height > 0
+      && crop.x + crop.width <= crop.sourceWidth && crop.y + crop.height <= crop.sourceHeight) {
+    const clipId = `photo-crop-${++photoSequence}`;
+    return `<svg class="product-image" role="img" aria-label="${escapeHtml(alt)}" width="${crop.width}" height="${crop.height}" viewBox="0 0 ${crop.width} ${crop.height}" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="${clipId}"><rect width="${crop.width}" height="${crop.height}"/></clipPath></defs><g clip-path="url(#${clipId})"><image href="${src}" x="${-crop.x}" y="${-crop.y}" width="${crop.sourceWidth}" height="${crop.sourceHeight}"/></g></svg>`;
+  }
+  return `<img class="product-image" src="${src}" alt="${escapeHtml(alt)}" width="${photo.width}" height="${photo.height}" loading="${useThumbnail ? "lazy" : "eager"}" decoding="async">`;
+}
 
 function productPrice(product) {
   if (typeof product.price !== "number" && typeof product.price !== "string") return null;
@@ -49,7 +62,7 @@ function appendProductBatch(focusNewCards = false) {
     const card = document.createElement("article");
     card.className = "card";
     card.dataset.productId = product.id;
-    card.innerHTML = `<div class="card-visual"><img class="product-image" src="${escapeHtml(photo.thumbnail || photo.src)}" alt="${escapeHtml(product.name)}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"></div>
+    card.innerHTML = `<div class="card-visual">${productImageMarkup(photo, product.name)}</div>
       <div class="card-body"><h3 class="card-title"><button type="button" class="product-open" aria-haspopup="dialog">${escapeHtml(product.name)}</button></h3>
       ${meta.length ? `<p class="card-meta">${meta.map(escapeHtml).join(" · ")}</p>` : ""}
       ${price !== null ? `<div class="card-row"><div class="price">${priceLabel(price)}</div></div>` : ""}</div>`;
@@ -125,6 +138,9 @@ function showProductImage(index) {
   image.alt = selectedProduct.name + (selectedProduct.images.length > 1 ? ` — ${index + 1}` : "");
   image.width = photo.width;
   image.height = photo.height;
+  image.hidden = !!photo.crop;
+  byId("modalImageCrop").hidden = !photo.crop;
+  byId("modalImageCrop").innerHTML = photo.crop ? productImageMarkup(photo, image.alt, false) : "";
   byId("modalThumbnails").querySelectorAll("button").forEach((button, i) => button.setAttribute("aria-pressed", String(i === index)));
 }
 
@@ -153,7 +169,7 @@ function openModal(product) {
       button.className = "photo-thumbnail";
       button.setAttribute("aria-label", `${index + 1}-ci şəkli göstər`);
       button.setAttribute("aria-pressed", "false");
-      button.innerHTML = `<img src="${escapeHtml(photo.thumbnail || photo.src)}" alt="" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async">`;
+      button.innerHTML = productImageMarkup(photo, "");
       button.addEventListener("click", () => showProductImage(index));
       thumbnails.appendChild(button);
     });

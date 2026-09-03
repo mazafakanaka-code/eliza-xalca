@@ -846,6 +846,862 @@
       "material": "",
       "color": "",
       "specifications": {}
+    },
+    {
+      "id": "EL-046",
+      "name": "Antrasit rəngli uzun xovlu xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-001.webp",
+          "thumbnail": "assets/catalog/b02-rug-001-small.webp",
+          "width": 1100,
+          "height": 1100
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-047",
+      "name": "Bej-qəhvəyi abstrakt naxışlı uzun xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-002.webp",
+          "thumbnail": "assets/catalog/b02-rug-002-small.webp",
+          "width": 960,
+          "height": 1280
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-048",
+      "name": "Bənövşəyi uzun xovlu xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-003.webp",
+          "thumbnail": "assets/catalog/b02-rug-003-small.webp",
+          "width": 1100,
+          "height": 1100
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-049",
+      "name": "Boz çalarlı abstrakt xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-004.webp",
+          "thumbnail": "assets/catalog/b02-rug-004-small.webp",
+          "width": 787,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-050",
+      "name": "Qızılı çərçivəli mərmər naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-005.webp",
+          "thumbnail": "assets/catalog/b02-rug-005-small.webp",
+          "width": 787,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-051",
+      "name": "Boz-qızılı abstrakt naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-006.webp",
+          "thumbnail": "assets/catalog/b02-rug-006-small.webp",
+          "width": 787,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-052",
+      "name": "Dairəvi ağ uzun xovlu xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-007.webp",
+          "thumbnail": "assets/catalog/b02-rug-007-small.webp",
+          "width": 1100,
+          "height": 1100
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-053",
+      "name": "Dairəvi firuzəyi ornamentli xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-008.webp",
+          "thumbnail": "assets/catalog/b02-rug-008-small.webp",
+          "width": 1100,
+          "height": 1100
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-054",
+      "name": "Medalyonlu mərmər naxışlı bej xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-009.webp",
+          "thumbnail": "assets/catalog/b02-rug-009-small.webp",
+          "width": 1100,
+          "height": 828
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-055",
+      "name": "Göy-boz abstrakt naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-010.webp",
+          "thumbnail": "assets/catalog/b02-rug-010-small.webp",
+          "width": 1100,
+          "height": 663
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-056",
+      "name": "Qara medalyonlu krem xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-011.webp",
+          "thumbnail": "assets/catalog/b02-rug-011-small.webp",
+          "width": 808,
+          "height": 808
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-057",
+      "name": "Boz ornamentli mərmər naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-012.webp",
+          "thumbnail": "assets/catalog/b02-rug-012-small.webp",
+          "width": 750,
+          "height": 750
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-058",
+      "name": "Göy-qəhvəyi abstrakt naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-013.webp",
+          "thumbnail": "assets/catalog/b02-rug-013-small.webp",
+          "width": 787,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-062",
+      "name": "Zərif medalyonlu bej xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-017.webp",
+          "thumbnail": "assets/catalog/b02-rug-017-small.webp",
+          "width": 1053,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-063",
+      "name": "Qızılı çərçivəli açıq xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-018.webp",
+          "thumbnail": "assets/catalog/b02-rug-018-small.webp",
+          "width": 1050,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-064",
+      "name": "Oval medalyonlu krem xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-019.webp",
+          "thumbnail": "assets/catalog/b02-rug-019-small.webp",
+          "width": 720,
+          "height": 1280
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-066",
+      "name": "İncə göy ornamentli açıq xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-021.webp",
+          "thumbnail": "assets/catalog/b02-rug-021-small.webp",
+          "width": 763,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-067",
+      "name": "Bej-ağ abstrakt naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-022.webp",
+          "thumbnail": "assets/catalog/b02-rug-022-small.webp",
+          "width": 963,
+          "height": 1280
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-068",
+      "name": "Göy medalyonlu krem xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-023.webp",
+          "thumbnail": "assets/catalog/b02-rug-023-small.webp",
+          "width": 1053,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-069",
+      "name": "Boz qıvrım naxışlı krem xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-024.webp",
+          "thumbnail": "assets/catalog/b02-rug-024-small.webp",
+          "width": 1100,
+          "height": 825
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-070",
+      "name": "Bej-boz teksturalı naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-025.webp",
+          "thumbnail": "assets/catalog/b02-rug-025-small.webp",
+          "width": 1100,
+          "height": 825
+        },
+        {
+          "src": "assets/catalog/b02-rug-028.webp",
+          "thumbnail": "assets/catalog/b02-rug-028-small.webp",
+          "width": 1100,
+          "height": 825
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-071",
+      "name": "Çiçək medalyonlu pudra tonlu xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-026.webp",
+          "thumbnail": "assets/catalog/b02-rug-026-small.webp",
+          "width": 1050,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-072",
+      "name": "Göy medalyonlu bej xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-027.webp",
+          "thumbnail": "assets/catalog/b02-rug-027-small.webp",
+          "width": 1100,
+          "height": 825
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-074",
+      "name": "Boz çərçivəli xətti naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-029.webp",
+          "thumbnail": "assets/catalog/b02-rug-029-small.webp",
+          "width": 963,
+          "height": 1280
+        },
+        {
+          "src": "assets/catalog/b02-rug-034.webp",
+          "thumbnail": "assets/catalog/b02-rug-034-small.webp",
+          "width": 1100,
+          "height": 825
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-075",
+      "name": "Göy-boz xanalı abstrakt xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-030.webp",
+          "thumbnail": "assets/catalog/b02-rug-030-small.webp",
+          "width": 1053,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-076",
+      "name": "Göy ornamentli açıq bej xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-031.webp",
+          "thumbnail": "assets/catalog/b02-rug-031-small.webp",
+          "width": 1053,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-077",
+      "name": "Göy çərçivəli xətti naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-032.webp",
+          "thumbnail": "assets/catalog/b02-rug-032-small.webp",
+          "width": 1100,
+          "height": 825
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-078",
+      "name": "Boz-mavi abstrakt naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-033.webp",
+          "thumbnail": "assets/catalog/b02-rug-033-small.webp",
+          "width": 787,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-081",
+      "name": "Göy haşiyəli klassik xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-036.webp",
+          "thumbnail": "assets/catalog/b02-rug-036-small.webp",
+          "width": 1100,
+          "height": 825
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-082",
+      "name": "Göy barokko naxışlı krem xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-037.webp",
+          "thumbnail": "assets/catalog/b02-rug-037-small.webp",
+          "width": 1053,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-083",
+      "name": "Sarı vurğulu həndəsi xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-038.webp",
+          "thumbnail": "assets/catalog/b02-rug-038-small.webp",
+          "width": 1100,
+          "height": 811
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-084",
+      "name": "L504 Vison — medalyonlu krem xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-039.webp",
+          "thumbnail": "assets/catalog/b02-rug-039-small.webp",
+          "width": 1100,
+          "height": 825
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-085",
+      "name": "Tünd boz incə naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-040.webp",
+          "thumbnail": "assets/catalog/b02-rug-040-small.webp",
+          "width": 540,
+          "height": 720,
+          "crop": {
+            "x": 0,
+            "y": 240,
+            "width": 540,
+            "height": 720,
+            "sourceWidth": 540,
+            "sourceHeight": 1200
+          }
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-086",
+      "name": "Rəngli romb naxışlı açıq xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-041.webp",
+          "thumbnail": "assets/catalog/b02-rug-041-small.webp",
+          "width": 1050,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-087",
+      "name": "Göy-sarı həndəsi naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-042.webp",
+          "thumbnail": "assets/catalog/b02-rug-042-small.webp",
+          "width": 1050,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-088",
+      "name": "Açıq boz romb naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-043.webp",
+          "thumbnail": "assets/catalog/b02-rug-043-small.webp",
+          "width": 1050,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-089",
+      "name": "L506 Grey — klassik naxışlı boz xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-044.webp",
+          "thumbnail": "assets/catalog/b02-rug-044-small.webp",
+          "width": 1100,
+          "height": 825
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-090",
+      "name": "Sadə krem rəngli xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-045.webp",
+          "thumbnail": "assets/catalog/b02-rug-045-small.webp",
+          "width": 540,
+          "height": 406,
+          "crop": {
+            "x": 0,
+            "y": 397,
+            "width": 540,
+            "height": 406,
+            "sourceWidth": 540,
+            "sourceHeight": 1200
+          }
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-091",
+      "name": "Boz ornamentli haşiyəli xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-046.webp",
+          "thumbnail": "assets/catalog/b02-rug-046-small.webp",
+          "width": 1050,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-092",
+      "name": "Mayami 5367A — göy medalyonlu xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-047.webp",
+          "thumbnail": "assets/catalog/b02-rug-047-small.webp",
+          "width": 540,
+          "height": 533,
+          "crop": {
+            "x": 0,
+            "y": 267,
+            "width": 540,
+            "height": 533,
+            "sourceWidth": 540,
+            "sourceHeight": 1200
+          }
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
+    },
+    {
+      "id": "EL-093",
+      "name": "Zolaqlı və romb naxışlı xalça",
+      "images": [
+        {
+          "src": "assets/catalog/b02-rug-048.webp",
+          "thumbnail": "assets/catalog/b02-rug-048-small.webp",
+          "width": 1050,
+          "height": 1400
+        }
+      ],
+      "description": "",
+      "price": null,
+      "room": "",
+      "style": "",
+      "size": "",
+      "material": "",
+      "color": "",
+      "specifications": {}
     }
   ]
 }
