@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="az"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ELIZA Xalça Evi — Xalça kataloqu</title><meta name="description" content="ELIZA Xalça Evi — Astoria Halı və ev xalçaları. Sədərək Ticarət Mərkəzi, Elit xalça sırası, mağaza 5. WhatsApp ilə əlaqə və ünvanlara çatdırılma."><link rel="preload" href="assets/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+<html lang="az"><head><meta charset="UTF-8"><meta name="viewport" content="width=1280, user-scalable=yes"><title>ELIZA Xalça Evi — Xalça kataloqu</title><meta name="description" content="ELIZA Xalça Evi — Astoria Halı və ev xalçaları. Sədərək Ticarət Mərkəzi, Elit xalça sırası, mağaza 5. WhatsApp ilə əlaqə və ünvanlara çatdırılma."><link rel="preload" href="assets/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face {font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;src:url("assets/inter-variable.woff2") format("woff2");}
 :root {--bg:#f8f5f0;--card:#fff;--text:#272321;--muted:#756b65;--line:#e9e3dd;--accent:#9b2936;--accent-dark:#71202b;--sand:#d9c1a0;--soft:#f7f2ed;--shadow:0 10px 32px rgba(48,30,23,.055);--radius:24px;--radius-sm:14px;--maxw:1280px;--header-offset:140px;}
 * {box-sizing:border-box;}
 html {scroll-behavior:smooth;scroll-padding-top:var(--header-offset);}
-body {margin:0;background:var(--bg);color:var(--text);font-family:"Inter",Arial,sans-serif;font-size:1rem;font-weight:400;line-height:1.65;font-synthesis:none;-webkit-text-size-adjust:100%;}
+body {margin:0;min-width:1280px;background:var(--bg);color:var(--text);font-family:"Inter",Arial,sans-serif;font-size:1rem;font-weight:400;line-height:1.65;font-synthesis:none;-webkit-text-size-adjust:100%;}
 img {display:block;max-width:100%;}
 a {color:inherit;text-decoration:none;}
 button,input,select {font:inherit;}
@@ -17,19 +17,30 @@ h1,h2,h3,p {overflow-wrap:break-word;}
 .icon {display:block;width:22px;height:22px;flex:0 0 auto;}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible {outline:3px solid var(--accent);outline-offset:5px;}
 
-/* Readable profile names, one prominent contact action */
+/* A single aligned desktop header, also used on phones. */
 .header {position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #ede5df;box-shadow:0 4px 24px rgba(42,25,20,.035);}
-.nav {display:grid;grid-template-columns:minmax(15rem,1fr) auto auto;align-items:center;gap:8px 32px;min-height:124px;padding:14px 0;}
-.brand {display:flex;align-items:center;grid-column:1;grid-row:1/3;width:17rem;max-width:100%;min-width:0;}
+.nav {display:flex;align-items:center;justify-content:space-between;gap:28px;min-height:116px;padding:14px 0;}
+.brand {display:flex;align-items:center;flex:0 0 17rem;width:17rem;}
 .brand-logo-wrap {width:100%;}
 .brand-logo {width:100%;height:auto;display:block;}
-.menu {display:flex;grid-column:2;grid-row:1;align-items:center;gap:28px;font-size:.9375rem;font-weight:500;white-space:nowrap;}
-.menu a {position:relative;padding:8px 0;color:#62554f;transition:color .2s;}
-.menu a::after {content:"";position:absolute;left:0;bottom:4px;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .2s;}
+.menu {display:flex;flex:0 0 auto;align-items:center;gap:22px;font-size:.9375rem;font-weight:500;white-space:nowrap;}
+.menu a {position:relative;padding:12px 0;color:#62554f;transition:color .2s;}
+.menu a::after {content:"";position:absolute;left:0;bottom:5px;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .2s;}
 .menu a:hover {color:var(--accent);}
 .menu a:hover::after {transform:scaleX(1);}
-.nav-actions {display:contents;}
-.nav-actions>.whatsapp-button {grid-column:3;grid-row:1;}
+.nav-actions {display:flex;flex:0 0 auto;align-items:center;gap:12px;}
+.header-socials {display:flex;align-items:center;gap:10px;}
+.header-icon {display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:10px 12px;border:1px solid #ece6e0;border-radius:14px;background:#fcfaf8;color:#4b403b;white-space:nowrap;transition:transform .2s,box-shadow .2s,border-color .2s,background .2s;}
+.header-icon:hover {transform:translateY(-2px);border-color:#d7c3b9;background:#fff;box-shadow:0 6px 16px rgba(42,25,20,.075);}
+.social-icon-badge {display:grid;place-items:center;width:28px;height:28px;flex:0 0 28px;border-radius:8px;}
+.social-icon-badge .icon {width:16px;height:16px;}
+.social-label {font-size:.875rem;font-weight:500;line-height:1.5;white-space:nowrap;}
+.instagram .social-icon-badge {background:linear-gradient(35deg,#efa945,#d33574 55%,#784ec3);color:#fff;}
+.tiktok .social-icon-badge {background:#19191b;color:#fff;}
+.location-link {background:#fbf2ee;border-color:#f0ded6;color:var(--accent-dark);}
+.location-link .social-icon-badge {width:22px;flex-basis:22px;}
+.location-link .icon {width:20px;height:20px;}
+.whatsapp-button {grid-column:3;grid-row:1;}
 .header-socials {display:grid;grid-column:2;grid-row:2;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:10px;}
 .header-icon {display:flex;align-items:center;justify-content:center;gap:9px;min-width:0;min-height:44px;padding:6px 10px;border:1px solid #ece6e0;border-radius:12px;background:#fcfaf8;color:#4b403b;transition:transform .2s,box-shadow .2s,border-color .2s,background .2s;}
 .header-icon:hover {transform:translateY(-2px);border-color:#d7c3b9;background:#fff;box-shadow:0 6px 16px rgba(42,25,20,.075);}
@@ -43,6 +54,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible {o
 .location-link .icon {width:20px;height:20px;}
 .location-link .social-label {font-size:.875rem;}
 .whatsapp-button {position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:13px 20px;border:1px solid #08713a;border-radius:16px;background:linear-gradient(135deg,#138f4d,#08753c);color:#fff;font-size:.9375rem;font-weight:600;line-height:1.5;white-space:nowrap;box-shadow:0 6px 18px rgba(10,125,60,.18);transition:filter .2s;}
+.nav-actions>.whatsapp-button {min-height:52px;padding:12px 16px;border-radius:14px;}
 .whatsapp-button .icon {width:24px;height:24px;}
 .whatsapp-button:hover {filter:brightness(1.08);}
 .whatsapp-pulse {animation:whatsapp-breathe 2.2s ease-in-out infinite;transform-origin:center;will-change:transform;}
@@ -165,40 +177,6 @@ footer {margin:0;padding:28px 0;background:#34232a;color:#e9dcd8;}
 .modal-price {margin:12px 0 22px;color:var(--accent-dark);font-size:1.875rem;font-weight:600;line-height:1.4;font-variant-numeric:tabular-nums;}
 .modal-whatsapp {width:100%;white-space:normal;text-align:center;}
 
-@media (max-width:1120px) {
- .nav {grid-template-columns:minmax(0,1fr) auto;gap:10px 24px;}.brand {grid-column:1;grid-row:1;width:15rem;}.menu {display:none;}
- .nav-actions>.whatsapp-button {grid-column:2;grid-row:1;}.header-socials {grid-column:1;grid-row:2;justify-self:start;}.location-link {grid-column:2;grid-row:2;}
- .hero-card {gap:32px;padding:40px;}.catalog-grid {grid-template-columns:repeat(3,minmax(0,1fr));}
- .filters {grid-template-columns:repeat(2,minmax(0,1fr));}.contact-box {gap:26px;padding:28px;}
-}
-@media (max-width:960px) {
- .brand {width:15rem;}.nav {column-gap:18px;}.header-socials {gap:8px;}
- .hero-card {grid-template-columns:1fr;}.hero-copy {max-width:680px;}.hero p {max-width:600px;}
- h1 {font-size:clamp(2.5rem,6vw,3.5rem);}.mini-grid {grid-template-columns:repeat(4,minmax(0,1fr));}.mini-card {padding:16px;}
- .about-box,.contact-box {grid-template-columns:1fr;}.contact-details {padding:0;}.map-frame,.map-frame iframe {min-height:330px;}
-}
-@media (max-width:700px) {
- .container {width:calc(100% - 32px);}.header {position:relative;}.nav {max-width:30rem;grid-template-columns:minmax(0,1fr) 104px;gap:12px;min-height:0;padding:6px 0 16px;}
- .brand {grid-column:1/-1;grid-row:1;justify-self:center;width:16rem;}.brand-logo {width:100%;}
- .nav-actions>.whatsapp-button {grid-column:1;grid-row:2;min-width:0;min-height:46px;padding:11px 12px;font-size:.9375rem;}
- .location-link {grid-column:2;grid-row:2;min-height:46px;}
- .header-socials {grid-column:1/-1;grid-row:3;justify-self:stretch;gap:10px;padding-top:3px;}.header-icon {padding:7px 9px;}
- .whatsapp-pulse {transform-origin:left center;}.hero {padding-top:24px;}.hero-card {padding:30px;gap:28px;border-radius:24px;}
- h1 {font-size:clamp(2.25rem,6.5vw,3rem);letter-spacing:-.03em;}.mini-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
- .mini-card {min-height:174px;}.catalog-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
- .section {padding:40px 0;}.section-head {gap:20px;flex-wrap:wrap;}.card-visual {padding:18px;}.card-body {padding:17px;}
- .info-card {padding:28px;}.contact {padding-bottom:44px;}.modal-card {grid-template-columns:1fr;}.modal-visual {padding:24px;}
- .modal-rug {max-width:380px;margin:auto;}.modal-content {padding:26px;}.modal-content .eyebrow {margin-top:22px;}
-}
-@media (max-width:420px) {
- .container {width:calc(100% - 24px);}.nav {grid-template-columns:minmax(0,1fr) 92px;column-gap:10px;}.brand {width:15rem;}
- .header-socials {gap:8px;}.header-socials .header-icon {flex-direction:column;gap:5px;padding:9px 5px;border-radius:12px;}.social-icon-badge {width:26px;height:26px;flex-basis:26px;}.header-socials .social-label {font-size:.8125rem;}
- .nav-actions>.whatsapp-button {gap:8px;padding:10px 9px;font-size:.875rem;}.whatsapp-button .icon {width:22px;height:22px;}
- .hero-card {padding:27px 22px;}.hero p {font-size:1rem;}.hero .btn {width:100%;}.mini-grid {gap:10px;}.mini-card {padding:14px;}
- .mini-card strong {font-size:.8125rem;}.filters {grid-template-columns:1fr;padding:10px;}.catalog-grid {grid-template-columns:1fr;}
- .section-head .btn-secondary {font-size:.875rem;min-height:42px;}.info-card {padding:25px;}.contact-box {padding:24px 18px;}
- .map-frame,.map-frame iframe {min-height:280px;}.map-card figcaption {padding:16px;}.modal {padding:12px;}.modal-content {padding:24px;}
-}
 @media (prefers-reduced-motion:reduce) {
  html {scroll-behavior:auto;}.whatsapp-pulse,.whatsapp-pulse::after {animation:none;will-change:auto;}
  .card,.header-icon,.btn {transition:none;}.card:hover,.header-icon:hover,.btn:hover {transform:none;}
@@ -208,9 +186,9 @@ footer {margin:0;padding:28px 0;background:#34232a;color:#e9dcd8;}
   <a href="#" class="brand" aria-label="ELIZA Xalça Evi"><div class="brand-logo-wrap"><img class="brand-logo" src="assets/eliza-logo.png" alt="ELIZA Xalça Evi" width="1536" height="512" fetchpriority="high" decoding="async"></div></a>
   <nav class="menu" aria-label="Əsas menyu"><a href="#catalog">Kataloq</a><a href="#about">Haqqımızda</a></nav>
   <div class="nav-actions" aria-label="Əlaqə və sosial şəbəkələr">
-   <a class="whatsapp-button whatsapp-pulse" href="https://wa.me/994706328232" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ilə yazın: 070 632 82 32"><svg class="icon" aria-hidden="true" focusable="false" fill="currentColor" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg><span>070 632 82 32</span></a>
-   <a class="header-icon location-link" href="#store-map" aria-label="Ünvan — mağazanın xəritəsinə keç" title="Ünvanı xəritədə göstər"><span class="social-icon-badge"><svg class="icon" aria-hidden="true" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.7"></circle></svg></span><span class="social-label">Ünvan</span></a>
    <div class="header-socials"><a class="header-icon instagram" href="https://www.instagram.com/eliza.xalca.evi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @eliza.xalca.evi" title="Instagram: @eliza.xalca.evi"><span class="social-icon-badge"><svg class="icon" aria-hidden="true" focusable="false" fill="currentColor" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"></path></svg></span><span class="social-label">@eliza.xalca.evi</span></a><a class="header-icon tiktok" href="https://www.tiktok.com/@eliza_xalca.evi" target="_blank" rel="noopener noreferrer" aria-label="TikTok: @eliza_xalca.evi" title="TikTok: @eliza_xalca.evi"><span class="social-icon-badge"><svg class="icon" aria-hidden="true" focusable="false" fill="currentColor" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path></svg></span><span class="social-label">@eliza_xalca.evi</span></a></div>
+   <a class="header-icon location-link" href="#store-map" aria-label="Ünvan — mağazanın xəritəsinə keç" title="Ünvanı xəritədə göstər"><span class="social-icon-badge"><svg class="icon" aria-hidden="true" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.7"></circle></svg></span><span class="social-label">Ünvan</span></a>
+   <a class="whatsapp-button whatsapp-pulse" href="https://wa.me/994706328232" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ilə yazın: 070 632 82 32"><svg class="icon" aria-hidden="true" focusable="false" fill="currentColor" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg><span>070 632 82 32</span></a>
   </div>
  </div>
 </header><main id="home"><section class="hero"><div class="container"><div class="hero-card"><div class="hero-copy"><span class="eyebrow">Xalça kolleksiyası</span><h1>Evinizə yaraşan <span>gözəl xalçalar.</span></h1><p>Evinizin üslubuna uyğun xalçanı seçin. Ölçü, rəng və mövcud modellər barədə bizə yazın.</p><div class="hero-actions"><a class="btn" href="#catalog">Xalçalara bax<svg class="icon" aria-hidden="true" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div></div><div class="hero-side"><div class="feature-panel"><div class="mini-grid"><div class="mini-card"><div class="mini-label">Klassik</div><strong>Qonaq otağı üçün seçilmiş modellər</strong><div class="rug-preview pattern-red"></div></div><div class="mini-card"><div class="mini-label">Modern</div><strong>Sadə və zövqlü günlük istifadə variantları</strong><div class="rug-preview pattern-beige"></div></div><div class="mini-card"><div class="mini-label">Premium</div><strong>Yumşaq toxuma və daha dolğun görünüş</strong><div class="rug-preview pattern-dark"></div></div><div class="mini-card"><div class="mini-label">Astoria Halı</div><strong>Kolleksiyadan bəyəndiyiniz modeli seçin</strong><div class="rug-preview pattern-sand"></div></div></div></div></div></div></div></section><section class="section" id="catalog"><div class="container"><div class="section-head"><div><span class="section-label">Zövqünüzə uyğun</span><h2>Xalça kataloqu</h2><p>Otağa və üsluba uyğun axtarış aparın.</p></div><button class="btn-secondary" onclick="resetFilters()">Filtrləri sıfırla</button></div><div class="filters"><input id="searchInput" class="control" type="search" placeholder="Xalça adı üzrə axtar..." oninput="filterProducts()" aria-label="Xalça axtarışı"><select id="roomFilter" class="control" onchange="filterProducts()" aria-label="Otaq seçimi"><option value="">Bütün otaqlar</option><option>Qonaq otağı</option><option>Yataq otağı</option><option>Dəhliz</option><option>Uşaq otağı</option></select><select id="styleFilter" class="control" onchange="filterProducts()" aria-label="Üslub seçimi"><option value="">Bütün üslublar</option><option>Klassik</option><option>Modern</option><option>Minimal</option><option>Premium</option></select><select id="sortFilter" class="control" onchange="filterProducts()" aria-label="Məhsulların sıralanması"><option value="default">Sıralama</option><option value="low">Qiymət: ucuzdan bahaya</option><option value="high">Qiymət: bahadan ucuza</option></select></div><div class="results"><div id="resultCount" aria-live="polite">8 məhsul göstərilir</div><div class="catalog-note">Məhsullar və qiymətlər hələlik nümunədir.</div></div><div class="catalog-grid" id="productGrid"></div></div></section><section class="section" id="about"><div class="container">
