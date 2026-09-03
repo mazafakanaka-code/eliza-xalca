@@ -1,5 +1,27 @@
+const viewportMeta = document.querySelector('meta[name="viewport"]');
+if (viewportMeta) {
+  viewportMeta.setAttribute('content', 'width=1440, user-scalable=yes');
+}
+
 const layoutFixStyle = document.createElement("style");
 layoutFixStyle.textContent = `
+:root {
+  --maxw:1360px;
+}
+html,
+body {
+  min-width:1440px !important;
+}
+body {
+  overflow-x:hidden;
+}
+.container {
+  width:1360px !important;
+  max-width:1360px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
 .catalog-grid {align-items:stretch;}
 .card {height:100%;}
 .card-visual {
@@ -34,66 +56,69 @@ layoutFixStyle.textContent = `
   transform:none;
 }
 
-/* Bigger, easier-to-read desktop header */
+/* Larger desktop header, but kept inside the same 1360px grid as the whole site. */
 .header .nav {
-  min-height:150px;
-  padding:20px 0;
-  gap:38px;
+  width:1360px !important;
+  max-width:1360px !important;
+  min-height:146px;
+  padding:18px 0;
+  gap:32px;
 }
 .header .brand {
-  flex:0 0 22rem;
-  width:22rem;
+  flex:0 0 20rem;
+  width:20rem;
 }
 .header .menu {
-  gap:32px;
-  font-size:1.05rem;
+  gap:28px;
+  font-size:1.02rem;
 }
 .header .menu a {
-  padding:16px 0;
+  padding:15px 0;
 }
 .header .nav-actions {
-  gap:15px;
+  gap:12px;
+  min-width:0;
 }
 .header .header-socials {
-  gap:12px;
+  gap:10px;
 }
 .header .header-icon {
-  min-height:58px;
-  padding:11px 16px;
-  gap:10px;
-  border-radius:15px;
+  min-height:56px;
+  padding:10px 14px;
+  gap:9px;
+  border-radius:14px;
 }
 .header .social-icon-badge {
-  width:32px;
-  height:32px;
-  flex-basis:32px;
+  width:30px;
+  height:30px;
+  flex-basis:30px;
   border-radius:9px;
 }
 .header .social-icon-badge .icon {
-  width:18px;
-  height:18px;
+  width:17px;
+  height:17px;
 }
 .header .social-label,
 .header .location-link .social-label {
-  font-size:.94rem;
+  font-size:.9rem;
 }
 .header .location-link .social-icon-badge {
-  width:28px;
-  flex-basis:28px;
+  width:26px;
+  flex-basis:26px;
 }
 .header .location-link .icon {
-  width:22px;
-  height:22px;
+  width:21px;
+  height:21px;
 }
 .header .nav-actions > .whatsapp-button {
-  min-height:62px;
-  padding:14px 21px;
-  border-radius:16px;
-  font-size:1.02rem;
+  min-height:58px;
+  padding:13px 18px;
+  border-radius:15px;
+  font-size:.98rem;
 }
 .header .whatsapp-button .icon {
-  width:25px;
-  height:25px;
+  width:24px;
+  height:24px;
 }
 `;
 document.head.appendChild(layoutFixStyle);
