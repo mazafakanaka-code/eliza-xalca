@@ -65,8 +65,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible {o
 
 /* Collection introduction */
 .hero {padding:36px 0 16px;}
-.hero-card {position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:56px;padding:56px;background:linear-gradient(118deg,#461b25,#6c2633 62%,#813444);border:1px solid #762b37;border-radius:30px;color:#fff;box-shadow:0 20px 44px rgba(80,28,39,.13);}
-.hero-copy {position:relative;min-width:0;}
+.hero-card {position:relative;padding:44px;background:linear-gradient(118deg,#461b25,#6c2633 62%,#813444);border:1px solid #762b37;border-radius:30px;color:#fff;box-shadow:0 20px 44px rgba(80,28,39,.13);}
+.hero-copy {position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:end;column-gap:64px;min-width:0;}
+.hero-copy>.eyebrow {grid-column:1;grid-row:1;justify-self:start;}
+.hero-copy>h1 {grid-column:1;grid-row:2/4;margin:20px 0 0;font-size:clamp(2.25rem,3.6vw,3.125rem);}
+.hero-copy>p {grid-column:2;grid-row:1/3;}
+.hero-copy>.hero-actions {grid-column:2;grid-row:3;margin-top:22px;}
 .eyebrow {display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid rgba(255,255,255,.22);border-radius:8px;color:#f4d9ce;background:rgba(255,255,255,.06);font-size:.875rem;font-weight:500;line-height:1.5;letter-spacing:.01em;}
 .eyebrow i {display:none;}
 h1 {max-width:700px;margin:24px 0 20px;font-size:clamp(2.25rem,4.3vw,3.625rem);font-weight:600;line-height:1.14;letter-spacing:-.035em;text-wrap:balance;}
@@ -81,18 +85,18 @@ h1 span {display:block;color:#f3d4c2;}
 .hero .btn {padding:14px 24px;border-color:#f4e5d7;background:#f8eee3;color:var(--accent-dark);box-shadow:0 6px 18px rgba(31,12,18,.12);}
 .hero .btn:hover {background:#fff;}
 .hero .btn .icon {width:20px;height:20px;}
-.hero-side {min-width:0;}
-.hero-collage {position:relative;isolation:isolate;width:100%;aspect-ratio:1.02;}
-.interior-photo {position:absolute;margin:0;overflow:hidden;border:5px solid #f9efe5;border-radius:19px;background:#e5d7c7;box-shadow:0 18px 38px rgba(28,10,16,.3);}
+.hero-side {min-width:0;margin-top:34px;}
+.hero-collage {display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:24px;width:100%;aspect-ratio:2.25;}
+.interior-photo {min-width:0;min-height:0;margin:0;overflow:hidden;border:4px solid #f9efe5;border-radius:19px;background:#e5d7c7;box-shadow:0 10px 24px rgba(28,10,16,.2);}
 .interior-photo img {display:block;width:100%;height:100%;object-fit:cover;}
-.interior-photo-main {z-index:1;top:8%;left:15%;width:72%;height:87%;transform:rotate(-3.5deg);}
+.interior-photo-main {grid-column:1;grid-row:1/3;}
 .interior-photo-main img {object-position:50% 60%;}
-.interior-photo-light {z-index:3;top:-2%;right:-2%;width:43%;height:35%;transform:rotate(5deg);}
+.interior-photo-light {grid-column:2;grid-row:1;}
 .interior-photo-light img {object-position:50% 58%;}
-.interior-photo-detail {z-index:4;right:-3%;bottom:-2%;width:46%;height:36%;transform:rotate(-5deg);}
+.interior-photo-detail {grid-column:3;grid-row:1;}
 .interior-photo-detail img {object-position:50% 60%;}
-.interior-photo-ivory {z-index:2;top:-1%;left:-6%;width:44%;height:35%;transform:rotate(-7deg);}
-.interior-photo-evening {z-index:3;bottom:0;left:-6%;width:44%;height:36%;transform:rotate(5deg);}
+.interior-photo-ivory {grid-column:2;grid-row:2;}
+.interior-photo-evening {grid-column:3;grid-row:2;}
 .interior-photo-ivory img,.interior-photo-evening img {object-position:50% 60%;}
 .pattern-red {background:linear-gradient(180deg, rgba(255,255,255,.2), transparent 30%),repeating-linear-gradient(90deg, #7d1019 0 14px, #af2b35 14px 28px),repeating-linear-gradient(0deg, rgba(255,255,255,.14) 0 8px, rgba(0,0,0,0) 8px 16px);}
 .pattern-beige {background:linear-gradient(180deg, rgba(255,255,255,.28), transparent 30%),repeating-linear-gradient(45deg, #d5b48f 0 12px, #c69a71 12px 24px),repeating-linear-gradient(-45deg, rgba(255,255,255,.16) 0 10px, rgba(0,0,0,0) 10px 20px);}
@@ -119,12 +123,12 @@ h1 span {display:block;color:#f3d4c2;}
 .load-more-button:active {transform:translateY(0);}
 .load-more-button .icon {width:20px;height:20px;}
 .load-more-count {display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:28px;padding:0 8px;border-radius:8px;background:rgba(255,255,255,.13);color:#fff4ec;font-size:.875rem;font-weight:500;font-variant-numeric:tabular-nums;}
-.card {position:relative;scroll-margin-top:16px;display:flex;flex-direction:column;min-width:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s,border-color .25s;}
-.card:hover {transform:translateY(-5px);border-color:#dbc7bf;box-shadow:0 18px 34px rgba(66,39,30,.1);}
+.card {position:relative;scroll-margin-top:16px;display:flex;flex-direction:column;min-width:0;border:0;border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;}
+.card:hover {transform:translateY(-5px);box-shadow:0 18px 34px rgba(66,39,30,.1);}
 .card-visual {display:flex;align-items:center;justify-content:center;aspect-ratio:1;padding:12px;background:#f3efe9;border-bottom:1px solid #eee6dd;}
 .product-image {width:100%;height:100%;object-fit:contain;border-radius:10px;}
-.product-open {display:flex;align-items:center;justify-content:center;width:100%;min-height:76px;padding:15px 17px;border:1px solid #d8b9b5;border-radius:12px;background:linear-gradient(145deg,#fffaf4,#f5e9e3);color:#722e39;font:inherit;text-align:center;box-shadow:inset 0 0 0 3px #fffaf7,0 3px 8px rgba(94,40,40,.035);transition:background .2s,border-color .2s,color .2s;}
-.card:hover .product-open {border-color:#ab727a;background:linear-gradient(145deg,#fdf5eb,#efdbd4);color:#60222e;}
+.product-open {display:block;width:100%;padding:0;border:0;background:none;color:#522d34;font:inherit;text-align:left;transition:color .2s;}
+.card:hover .product-open {color:var(--accent);}
 .product-open::after {content:"";position:absolute;inset:0;border-radius:20px;}
 .card:focus-within {outline:3px solid var(--accent);outline-offset:4px;}
 .catalog-empty {grid-column:1/-1;padding:40px;text-align:center;border:1px solid var(--line);border-radius:20px;background:#fff;}
@@ -133,8 +137,8 @@ h1 span {display:block;color:#f3d4c2;}
 .rug-card {position:relative;width:100%;height:100%;overflow:hidden;border:4px solid rgba(255,255,255,.8);border-radius:12px;box-shadow:0 14px 22px rgba(74,45,27,.14);}
 .rug-card::after {content:"";position:absolute;inset:10px;border:1px solid rgba(255,255,255,.4);border-radius:5px;pointer-events:none;}
 .badge {position:absolute;top:10px;left:10px;z-index:2;padding:5px 10px;border:1px solid rgba(255,255,255,.7);border-radius:7px;background:rgba(255,255,255,.93);color:#64413b;font-size:.8125rem;font-weight:500;line-height:1.5;}
-.card-body {display:flex;flex-direction:column;flex:1;padding:15px;background:#fffdfb;}
-.card-title {margin:0;font-size:1.0625rem;font-weight:600;line-height:1.5;letter-spacing:-.01em;overflow-wrap:break-word;text-wrap:balance;}
+.card-body {display:flex;flex-direction:column;flex:1;padding:20px 22px 22px;background:#fffdfb;}
+.card-title {min-height:3.1em;margin:0;font-size:1.0625rem;font-weight:600;line-height:1.55;letter-spacing:-.01em;overflow-wrap:break-word;}
 .card-meta {margin:12px 0 16px;color:var(--muted);font-size:.875rem;line-height:1.6;}
 .card-row {display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid #f0e9e3;}
 .price {color:var(--accent-dark);font-size:1.375rem;line-height:1.4;font-weight:600;font-variant-numeric:tabular-nums;}
@@ -144,16 +148,19 @@ h1 span {display:block;color:#f3d4c2;}
 
 /* Store story and directions */
 #about {padding-top:32px;}
-.about-box {display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.about-box {display:grid;grid-template-columns:minmax(0,1fr);gap:24px;}
 .info-card {padding:34px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 6px 22px rgba(48,30,23,.025);}
 .info-card:first-child {background:linear-gradient(135deg,#eee0d3,#fcf7f0);border-color:#e6d5c5;}
-.info-card-store {display:grid;grid-template-columns:minmax(0,1fr) 160px;align-items:center;gap:24px;}
-.store-photo {width:100%;height:100%;min-height:260px;max-height:370px;object-fit:cover;object-position:50% 35%;border:4px solid #fff7ee;border-radius:16px;box-shadow:0 8px 18px rgba(75,48,31,.1);}
+.info-card-store {display:grid;grid-template-columns:minmax(0,1fr) 460px;align-items:center;gap:56px;padding:44px;}
+.info-card-store>div {max-width:510px;}
+.info-card.info-card-store h3 {font-size:2rem;line-height:1.3;}
+.info-card-store p {font-size:1.0625rem;}
+.store-photo {width:100%;height:680px;object-fit:cover;object-position:50% 42%;border:5px solid #fff7ee;border-radius:20px;box-shadow:0 12px 28px rgba(75,48,31,.13);}
 .section-label {display:block;margin:0 0 14px;color:var(--accent);font-size:.875rem;font-weight:500;letter-spacing:.02em;}
 .info-card h3 {margin:0 0 16px;color:var(--accent-dark);font-size:1.375rem;font-weight:600;line-height:1.35;letter-spacing:-.02em;}
 .info-card p {margin:0;color:var(--muted);line-height:1.8;}
 .info-card .about-note {margin-top:20px;}
-.order-steps {display:grid;gap:20px;list-style:none;padding:0;margin:20px 0 0;}
+.order-steps {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;list-style:none;padding:0;margin:24px 0 0;}
 .order-steps li {display:flex;align-items:flex-start;gap:15px;}
 .order-steps li>span {display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border:1px solid #792938;border-radius:10px;background:#792938;color:#fff;font-size:.875rem;font-weight:600;font-variant-numeric:tabular-nums;}
 .order-steps strong {display:block;margin-bottom:4px;font-size:.9375rem;color:var(--text);}
@@ -170,6 +177,10 @@ address {margin-top:6px;font-style:normal;color:var(--muted);line-height:1.8;}
 .phone-link>.icon {margin:0 10px;}
 .phone-link small {display:block;color:var(--muted);font-size:.875rem;font-weight:400;}
 .phone-link strong {display:block;margin-top:2px;font-size:1.0625rem;font-weight:600;letter-spacing:.015em;}
+.delivery-note {display:grid;grid-template-columns:146px minmax(0,1fr);align-items:center;gap:14px;margin-top:28px;padding-top:22px;border-top:1px solid #eadbd2;}
+.delivery-truck {width:146px;height:108px;object-fit:contain;}
+.delivery-note h3 {margin:0 0 6px;color:var(--accent-dark);font-size:1.0625rem;font-weight:600;line-height:1.4;}
+.delivery-note p {margin:0;color:var(--muted);font-size:.9375rem;line-height:1.65;}
 .map-card {display:flex;flex-direction:column;min-width:0;margin:0;border:1px solid var(--line);border-radius:19px;overflow:hidden;background:#f4f1eb;scroll-margin-top:16px;transition:box-shadow .3s,border-color .3s;}
 .map-card:target {border-color:#b6767b;box-shadow:0 0 0 4px rgba(155,41,54,.09);}
 .map-frame {flex:1;min-height:320px;background:#eee9e2;}
@@ -196,7 +207,7 @@ footer {margin:0;padding:28px 0;background:#34232a;color:#e9dcd8;}
 .modal-content {position:relative;display:flex;flex-direction:column;justify-content:center;padding:64px 32px 36px;}
 .close {position:absolute;top:16px;right:16px;display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:12px;background:#faf6f2;color:var(--muted);font-size:22px;line-height:1;}
 .modal-content .eyebrow {margin-top:30px;}
-.modal-content h3 {margin:0 0 24px;padding:19px 20px;border:1px solid #ddc4bf;border-radius:14px;background:#fbf3ed;color:#722e39;font-size:1.625rem;font-weight:600;line-height:1.4;letter-spacing:-.02em;}
+.modal-content h3 {margin:0 0 24px;color:#722e39;font-size:1.625rem;font-weight:600;line-height:1.4;letter-spacing:-.02em;}
 .modal-content p {margin:0 0 18px;color:var(--muted);line-height:1.7;}
 .info-list {display:grid;gap:0;list-style:none;padding:0;margin:0 0 18px;}
 .info-list li {display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.875rem;}
@@ -237,6 +248,7 @@ footer {margin:0;padding:28px 0;background:#34232a;color:#e9dcd8;}
   <div class="contact-details"><span class="section-label">Bizi tapın</span><h2>Mağazamıza buyurun</h2>
    <div class="address-row"><span class="contact-icon"><svg class="icon" aria-hidden="true" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.7"></circle></svg></span><div><strong>Sədərək Ticarət Mərkəzi</strong><address>Elit xalça sırası, mağaza 5<br>Bakı, Azərbaycan</address></div></div>
    <a class="phone-link" href="tel:+994603328232"><svg class="icon" aria-hidden="true" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z"></path></svg><span><small>Əlavə əlaqə nömrəsi</small><strong>060 332 82 32</strong></span></a>
+   <div class="delivery-note"><img class="delivery-truck" src="assets/delivery-truck.webp" alt="Xalça çatdırılması üçün yük maşını" width="600" height="400" loading="lazy" decoding="async"><div><h3>Ünvanınıza çatdırılma var</h3><p>Çatdırılma vaxtını və şərtlərini bizimlə dəqiqləşdirin.</p></div></div>
    </div>
   <figure class="map-card" id="store-map" tabindex="-1" aria-label="Sədərək Ticarət Mərkəzi — Elit xalça sırası, mağaza 5"><div class="map-frame"><iframe src="https://www.google.com/maps?q=40.32661%2C49.77660&amp;z=14&amp;output=embed&amp;hl=az" title="Sədərək Ticarət Mərkəzinin xəritədə yeri" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen="" width="640" height="360"></iframe></div><figcaption><p>Xəritədə ticarət mərkəzi göstərilir. İçəridə Elit xalça sırası, 5-ci mağazaya yaxınlaşın.</p><a class="directions-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=40.32661%2C49.77660" target="_blank" rel="noopener noreferrer">Marşrut qur<svg class="icon" aria-hidden="true" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></figcaption></figure>
  </div>
