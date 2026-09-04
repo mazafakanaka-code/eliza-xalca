@@ -205,7 +205,7 @@ async function loadCatalog() {
   byId("resultCount").textContent = "Kataloq yüklənir…";
   byId("catalogMore").hidden = true;
   try {
-    const response = await fetch("products.json");
+    const response = await fetch("products.json?v=20260904-b03");
     if (!response.ok) throw new Error("Catalog unavailable");
     const data = await response.json();
     if (!Array.isArray(data.products)) throw new Error("Invalid catalog");

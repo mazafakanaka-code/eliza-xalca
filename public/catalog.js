@@ -124,6 +124,6 @@ body {
 document.head.appendChild(layoutFixStyle);
 
 const catalogCoreScript = document.createElement("script");
-catalogCoreScript.src = "catalog-core.js";
+catalogCoreScript.src = "catalog-core.js?v=20260904-b03";
 catalogCoreScript.async = false;
 document.body.appendChild(catalogCoreScript);
