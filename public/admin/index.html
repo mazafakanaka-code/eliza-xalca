@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ELIZA Xalça Evi — İdarəetmə</title>
   <meta name="robots" content="noindex,nofollow">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self' https://api.github.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: https://eliza-catalog-data.bubbly-moose-3025.chatgpt.site; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self' https://eliza-catalog-data.bubbly-moose-3025.chatgpt.site; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
   <link rel="preload" href="../assets/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="admin.css?v=1">
+  <link rel="stylesheet" href="admin.css?v=2">
 </head>
 <body>
   <header class="header">
@@ -16,8 +16,7 @@
         <img src="../assets/eliza-logo.png" alt="ELIZA Xalça Evi" width="1536" height="512">
       </a>
       <div class="header-actions">
-        <span class="connection-status" id="connectionStatus"><i></i><span>Redaktə bağlıdır</span></span>
-        <button class="button button-soft" id="connectButton" type="button">Giriş açarı</button>
+        <span class="connection-status connected" id="connectionStatus"><i></i><span>Redaktə açıqdır</span></span>
         <a class="button button-dark" href="../index.html" target="_blank" rel="noopener">Sayta bax</a>
       </div>
     </div>
@@ -44,27 +43,9 @@
           <input id="searchInput" type="search" placeholder="Ad və ya kod üzrə axtar" autocomplete="off">
         </label>
       </div>
-      <div class="notice" id="lockedNotice">
-        <div><strong>Dəyişiklik etmək üçün giriş açarını daxil edin.</strong><span>Kataloqa baxmaq üçün giriş lazım deyil.</span></div>
-        <button type="button" class="text-button" id="noticeConnect">Qoşul</button>
-      </div>
       <div class="catalog-grid" id="productGrid" aria-live="polite"></div>
     </section>
   </main>
-
-  <div class="modal" id="accessModal" role="dialog" aria-modal="true" aria-labelledby="accessTitle" hidden>
-    <div class="modal-backdrop" data-close="access"></div>
-    <section class="access-card modal-card-small">
-      <button class="close-button" type="button" data-close="access" aria-label="Pəncərəni bağla">×</button>
-      <span class="modal-icon">🔐</span>
-      <h2 id="accessTitle">Redaktə girişini açın</h2>
-      <p>GitHub hesabınız üçün yalnız bu kataloqa <b>Contents: Read and write</b> icazəsi olan şəxsi giriş açarını daxil edin.</p>
-      <label class="field"><span>Giriş açarı</span><input id="tokenInput" type="password" placeholder="github_pat_…" autocomplete="off" spellcheck="false"></label>
-      <p class="privacy-note">Açar saytda və brauzerdə yadda saxlanmır. Səhifəni bağlayanda silinir.</p>
-      <div class="modal-actions"><button class="button button-primary" id="tokenSubmit" type="button">Qoşul</button><button class="button button-soft" type="button" data-close="access">Ləğv et</button></div>
-      <p class="form-error" id="accessError" role="alert"></p>
-    </section>
-  </div>
 
   <div class="modal" id="editorModal" role="dialog" aria-modal="true" aria-labelledby="editorTitle" hidden>
     <div class="modal-backdrop" data-close="editor"></div>
@@ -101,6 +82,6 @@
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-  <script src="admin.js?v=1" defer></script>
+  <script src="admin.js?v=2" defer></script>
 </body>
 </html>

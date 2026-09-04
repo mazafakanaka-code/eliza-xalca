@@ -205,7 +205,13 @@ async function loadCatalog() {
   byId("resultCount").textContent = "Kataloq yüklənir…";
   byId("catalogMore").hidden = true;
   try {
-    const response = await fetch("products.json?v=20260904-b03");
+    let response;
+    try {
+      response = await fetch("https://eliza-catalog-data.bubbly-moose-3025.chatgpt.site/api/catalog", {cache:"no-store"});
+      if (!response.ok) throw new Error("Remote catalog unavailable");
+    } catch (_) {
+      response = await fetch("products.json?v=20260904-b04");
+    }
     if (!response.ok) throw new Error("Catalog unavailable");
     const data = await response.json();
     if (!Array.isArray(data.products)) throw new Error("Invalid catalog");

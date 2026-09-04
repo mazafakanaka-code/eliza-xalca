@@ -1,8 +1,6 @@
-const REPOSITORY = "mazafakanaka-code/eliza-xalca";
-const BRANCH = "main";
-const API_ROOT = "https://api.github.com";
+const API_ROOT = "https://eliza-catalog-data.bubbly-moose-3025.chatgpt.site";
 
-const state = { products: [], token: "", editingId: null, existingImages: [], newImages: [], busy: false };
+const state = { products: [], editingId: null, existingImages: [], newImages: [], busy: false };
 const $ = id => document.getElementById(id);
 const fields = {
   name: $("productName"), price: $("productPrice"), size: $("productSize"),
@@ -36,15 +34,8 @@ function showToast(message) {
   clearTimeout(toastTimer); const toast = $("toast"); toast.textContent = message; toast.hidden = false;
   toastTimer = setTimeout(() => { toast.hidden = true; }, 4200);
 }
-function setConnection(connected) {
-  $("connectionStatus").classList.toggle("connected", connected);
-  $("connectionStatus").querySelector("span").textContent = connected ? "Redaktə açıqdır" : "Redaktə bağlıdır";
-  $("connectButton").textContent = connected ? "Çıxış" : "Giriş açarı";
-  $("lockedNotice").hidden = connected;
-}
 function openModal(id) { $(id).hidden = false; document.body.style.overflow = "hidden"; }
 function closeModal(id) { $(id).hidden = true; document.body.style.overflow = ""; }
-function requireConnection() { if (state.token) return true; openModal("accessModal"); setTimeout(() => $("tokenInput").focus(), 0); return false; }
 
 function renderProducts() {
   const query = $("searchInput").value.toLocaleLowerCase("az").trim();
@@ -70,37 +61,12 @@ function renderProducts() {
 
 async function loadCatalog() {
   try {
-    const response = await fetch(`../products.json?admin=${Date.now()}`, {cache:"no-store"});
+    const response = await fetch(`${API_ROOT}/api/catalog?admin=${Date.now()}`, {cache:"no-store"});
     if (!response.ok) throw new Error("Kataloq yüklənmədi");
     const data = await response.json(); if (!Array.isArray(data.products)) throw new Error("Kataloq formatı yanlışdır");
     state.products = data.products; renderProducts();
   } catch (error) { $("resultCount").textContent = "Kataloq yüklənmədi"; $("productGrid").innerHTML = `<div class="empty">${escapeHtml(error.message)}</div>`; }
 }
-
-async function github(path, options = {}) {
-  if (!state.token) throw new Error("Giriş açarı daxil edilməyib");
-  const response = await fetch(API_ROOT + path, {
-    ...options,
-    headers: {"Accept":"application/vnd.github+json","Authorization":`Bearer ${state.token}`,"X-GitHub-Api-Version":"2022-11-28","Content-Type":"application/json",...(options.headers||{})}
-  });
-  let data = null; try { data = await response.json(); } catch (_) {}
-  if (!response.ok) {
-    const error = new Error(data?.message || `GitHub xətası (${response.status})`); error.status = response.status; throw error;
-  }
-  return data;
-}
-async function connect() {
-  const token = $("tokenInput").value.trim(); const button = $("tokenSubmit"); const error = $("accessError");
-  error.textContent = ""; if (!token) { error.textContent = "Giriş açarını daxil edin."; return; }
-  state.token = token; button.disabled = true; button.textContent = "Yoxlanılır…";
-  try {
-    const repo = await github(`/repos/${REPOSITORY}`);
-    if (!repo.permissions?.push) throw new Error("Bu hesabın kataloqu dəyişmək icazəsi yoxdur.");
-    $("tokenInput").value = ""; setConnection(true); closeModal("accessModal"); showToast("Redaktə girişi açıldı.");
-  } catch (err) { state.token = ""; error.textContent = err.status === 401 ? "Giriş açarı yanlışdır və ya müddəti bitib." : err.message; }
-  finally { button.disabled = false; button.textContent = "Qoşul"; }
-}
-function disconnect() { state.token = ""; setConnection(false); showToast("Redaktə girişi bağlandı."); }
 
 function resetForm() {
   $("productForm").reset(); state.newImages.forEach(photo => URL.revokeObjectURL(photo.preview)); state.existingImages = []; state.newImages = []; $("specList").innerHTML = ""; $("editorError").textContent = ""; renderPhotos();
@@ -110,10 +76,10 @@ function nextProductId() {
   return `EL-${String(max+1).padStart(3,"0")}`;
 }
 function addProduct() {
-  if (!requireConnection()) return; resetForm(); state.editingId = null; $("editorTitle").textContent = "Yeni xalça"; openModal("editorModal"); setTimeout(() => fields.name.focus(),0);
+  resetForm(); state.editingId = null; $("editorTitle").textContent = "Yeni xalça"; openModal("editorModal"); setTimeout(() => fields.name.focus(),0);
 }
 function editProduct(id) {
-  if (!requireConnection()) return; const product = state.products.find(p => p.id === id); if (!product) return;
+  const product = state.products.find(p => p.id === id); if (!product) return;
   resetForm(); state.editingId = id; $("editorTitle").textContent = product.name;
   for (const key of Object.keys(fields)) fields[key].value = text(product[key]);
   state.existingImages = JSON.parse(JSON.stringify(product.images || []));
@@ -157,52 +123,50 @@ async function addPhotos(files) {
     }
   } catch(err) { error.textContent=err.message; } finally { input.disabled=false; input.value=""; }
 }
-function blobBase64(blob) { return blob.arrayBuffer().then(buffer => { const bytes=new Uint8Array(buffer);let binary="";for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(binary); }); }
-function bytesBase64(value) { const bytes=new TextEncoder().encode(value);let binary="";for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(binary); }
-async function commitCatalog(products, imageFiles, message) {
-  const ref=await github(`/repos/${REPOSITORY}/git/ref/heads/${BRANCH}`); const parent=ref.object.sha;
-  const commit=await github(`/repos/${REPOSITORY}/git/commits/${parent}`); const tree=[];
-  for (const file of imageFiles) {
-    const blob=await github(`/repos/${REPOSITORY}/git/blobs`,{method:"POST",body:JSON.stringify({content:await blobBase64(file.blob),encoding:"base64"})});
-    tree.push({path:file.path,mode:"100644",type:"blob",sha:blob.sha});
-  }
-  const catalog=JSON.stringify({schemaVersion:1,products},null,2)+"\n";
-  const catalogBlob=await github(`/repos/${REPOSITORY}/git/blobs`,{method:"POST",body:JSON.stringify({content:bytesBase64(catalog),encoding:"base64"})});
-  tree.push({path:"public/products.json",mode:"100644",type:"blob",sha:catalogBlob.sha});
-  const newTree=await github(`/repos/${REPOSITORY}/git/trees`,{method:"POST",body:JSON.stringify({base_tree:commit.tree.sha,tree})});
-  const newCommit=await github(`/repos/${REPOSITORY}/git/commits`,{method:"POST",body:JSON.stringify({message,tree:newTree.sha,parents:[parent]})});
-  await github(`/repos/${REPOSITORY}/git/refs/heads/${BRANCH}`,{method:"PATCH",body:JSON.stringify({sha:newCommit.sha,force:false})});
+async function api(path, options = {}) {
+  const response = await fetch(API_ROOT + path, options);
+  let data = null; try { data = await response.json(); } catch (_) {}
+  if (!response.ok) throw new Error(data?.error || `Server xətası (${response.status})`);
+  return data;
+}
+async function uploadImage(blob) {
+  const data = await api("/api/upload", {method:"POST",headers:{"Content-Type":"image/webp"},body:blob});
+  if (!data?.url) throw new Error("Şəkil ünvanı alınmadı.");
+  return data.url;
+}
+async function saveCatalog(products) {
+  await api("/api/catalog", {method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({schemaVersion:1,products})});
 }
 function collectSpecifications() {
   const result={}; for(const row of $("specList").children){const inputs=row.querySelectorAll("input");const key=text(inputs[0].value),value=text(inputs[1].value);if(key&&value)result[key]=value;} return result;
 }
 async function saveProduct(event) {
-  event.preventDefault(); if (!requireConnection() || state.busy) return;
+  event.preventDefault(); if (state.busy) return;
   const error=$("editorError"),button=$("saveProductButton");error.textContent="";const name=text(fields.name.value);
   if(!name){error.textContent="Xalçanın adını daxil edin.";fields.name.focus();return;}
   if(!state.existingImages.length&&!state.newImages.length){error.textContent="Ən azı bir şəkil yükləyin.";return;}
   state.busy=true;button.disabled=true;button.textContent="Yadda saxlanılır…";
   try {
-    const stamp=Date.now();const imageFiles=[];const uploaded=[];
+    const uploaded=[];
     for(let i=0;i<state.newImages.length;i++){
-      const item=state.newImages[i],base=`assets/catalog/admin-${stamp}-${i+1}`;
-      imageFiles.push({path:`public/${base}.webp`,blob:item.full.blob},{path:`public/${base}-small.webp`,blob:item.thumb.blob});
-      uploaded.push({src:`${base}.webp`,thumbnail:`${base}-small.webp`,width:item.full.width,height:item.full.height});
+      const item=state.newImages[i];
+      const [src,thumbnail]=await Promise.all([uploadImage(item.full.blob),uploadImage(item.thumb.blob)]);
+      uploaded.push({src,thumbnail,width:item.full.width,height:item.full.height});
     }
     const priceText=text(fields.price.value);const product={
       id:state.editingId||nextProductId(),name,images:[...state.existingImages,...uploaded],description:text(fields.description.value),price:priceText===""?null:Number(priceText),
       room:text(fields.room.value),style:text(fields.style.value),size:text(fields.size.value),material:text(fields.material.value),color:text(fields.color.value),specifications:collectSpecifications()
     };
     const next=state.editingId?state.products.map(p=>p.id===state.editingId?product:p):[product,...state.products];
-    await commitCatalog(next,imageFiles,state.editingId?`Update ${product.id} in carpet catalog`:`Add ${product.id} to carpet catalog`);
-    state.products=next;closeModal("editorModal");renderProducts();showToast("Dəyişiklik saxlanıldı. Saytda bir neçə dəqiqəyə görünəcək.");
-  }catch(err){error.textContent=err.status===422?"Kataloq bu vaxt dəyişib. Səhifəni yeniləyib təkrar cəhd edin.":err.message;}
+    await saveCatalog(next);
+    state.products=next;closeModal("editorModal");renderProducts();showToast("Dəyişiklik saxlanıldı və saytda görünür.");
+  }catch(err){error.textContent=err.message;}
   finally{state.busy=false;button.disabled=false;button.textContent="Yadda saxla";}
 }
 async function deleteProduct(id) {
-  if(!requireConnection()||state.busy)return;const product=state.products.find(p=>p.id===id);if(!product)return;
+  if(state.busy)return;const product=state.products.find(p=>p.id===id);if(!product)return;
   if(!confirm(`“${product.name}” kartı kataloqdan silinsin?`))return;state.busy=true;
-  try{const next=state.products.filter(p=>p.id!==id);await commitCatalog(next,[],`Remove ${id} from carpet catalog`);state.products=next;renderProducts();showToast("Kart kataloqdan silindi.");}
+  try{const next=state.products.filter(p=>p.id!==id);await saveCatalog(next);state.products=next;renderProducts();showToast("Kart kataloqdan silindi.");}
   catch(err){showToast("Silmək alınmadı: "+err.message);}finally{state.busy=false;}
 }
 
@@ -211,11 +175,6 @@ $("addProductButton").addEventListener("click",addProduct);
 $("addSpecButton").addEventListener("click",()=>addSpecRow());
 $("photoInput").addEventListener("change",event=>addPhotos([...event.target.files]));
 $("productForm").addEventListener("submit",saveProduct);
-$("tokenSubmit").addEventListener("click",connect);
-$("tokenInput").addEventListener("keydown",event=>{if(event.key==="Enter")connect();});
-$("connectButton").addEventListener("click",()=>state.token?disconnect():openModal("accessModal"));
-$("noticeConnect").addEventListener("click",()=>openModal("accessModal"));
-document.querySelectorAll('[data-close="access"]').forEach(button=>button.addEventListener("click",()=>closeModal("accessModal")));
 document.querySelectorAll('[data-close="editor"]').forEach(button=>button.addEventListener("click",()=>{if(!state.busy)closeModal("editorModal");}));
-document.addEventListener("keydown",event=>{if(event.key!=="Escape"||state.busy)return;if(!$("editorModal").hidden)closeModal("editorModal");else if(!$("accessModal").hidden)closeModal("accessModal");});
-setConnection(false);loadCatalog();
+document.addEventListener("keydown",event=>{if(event.key!=="Escape"||state.busy)return;if(!$("editorModal").hidden)closeModal("editorModal");});
+loadCatalog();
