@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#0b1014">
+<title>Где тебе жить?</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#0b1014;color:#eef4f5;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{overflow-x:hidden;background:radial-gradient(circle at 85% 0%,#29404a55,transparent 35%),radial-gradient(circle at 0% 100%,#25362f55,transparent 35%),linear-gradient(#10171d,#080c0f)}button{font:inherit}.app{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:max(14px,env(safe-area-inset-top)) 12px max(18px,env(safe-area-inset-bottom))}.screen{display:none;width:min(760px,100%)}.screen.on{display:block}.card{background:#111920df;border:1px solid #ffffff16;border-radius:28px;box-shadow:0 30px 100px #0008;backdrop-filter:blur(18px);padding:28px 20px}.hero{text-align:center;padding:38px 22px}.eyebrow{color:#b8d0d6;text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:700}h1,h2{font-family:"Cormorant Garamond",Georgia,serif;margin:9px 0 0;line-height:.98}h1{font-size:clamp(48px,12vw,78px)}h2{font-size:clamp(36px,9vw,58px)}p{color:#b9c4c9;line-height:1.65}.btn{border:0;border-radius:999px;padding:15px 21px;font-weight:700;cursor:pointer;transition:.18s transform}.btn:active{transform:scale(.98)}.primary{background:linear-gradient(#d8e7e9,#9bb7be);color:#0b1115;box-shadow:0 12px 26px #8badb633}.ghost{background:#ffffff0b;color:#eef4f5;border:1px solid #ffffff24}.start{margin-top:16px;width:min(320px,100%)}.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0}.badge{border:1px solid #ffffff17;background:#ffffff09;border-radius:999px;padding:9px 12px;font-size:13px}.top{display:flex;justify-content:space-between;color:#aab8bd;font-size:13px}.bar{height:8px;background:#ffffff0d;border-radius:20px;overflow:hidden;margin:11px 0 26px}.fill{height:100%;background:linear-gradient(90deg,#8caeb6,#d7e5e8);width:10%;transition:.25s}.emoji{font-size:34px;width:70px;height:70px;display:grid;place-items:center;background:#ffffff09;border:1px solid #ffffff12;border-radius:21px;margin-bottom:15px}.question{font-size:clamp(31px,8vw,49px);margin-bottom:18px}.answers{display:grid;gap:10px}.answer{text-align:left;border:1px solid #ffffff14;background:#ffffff09;color:#eef4f5;border-radius:20px;padding:15px 16px;cursor:pointer}.answer b{display:block;font-size:15px}.answer span{display:block;color:#aab8bd;margin-top:5px;font-size:13px;line-height:1.45}.back{margin-top:17px}.movie{position:relative;overflow:hidden;border-radius:28px;min-height:min(86dvh,900px);border:1px solid #ffffff18;box-shadow:0 30px 100px #000a;background:#050708}.movie img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .85s ease,transform 3.3s ease;filter:saturate(.75) contrast(1.07) brightness(.82)}.shade{position:absolute;inset:0;background:linear-gradient(180deg,#05080b1a,#05080b40 42%,#05080bea 88%)}.movieText{position:relative;z-index:2;min-height:min(86dvh,900px);display:flex;flex-direction:column;justify-content:flex-end;padding:24px 18px}.movieText h2{max-width:11ch}.caption{font-size:16px;max-width:42ch}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.controls .btn{padding:10px 14px;font-size:13px}.mbar{height:4px;background:#ffffff30;border-radius:20px;overflow:hidden;margin-top:16px}.mfill{height:100%;background:#e8f2f4;width:0;transition:.2s}.credit{font-size:10px;color:#ffffff88;margin-top:8px}.result{text-align:center}.result .primary{margin-top:20px}.tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}@media(min-width:650px){.card{padding:36px 32px}.answers{grid-template-columns:1fr 1fr}.answer{min-height:105px}.movieText{padding:34px 30px}}@media(max-width:520px){.card{border-radius:23px;padding:23px 16px}.hero{padding:32px 16px}.btn{width:100%}.controls{display:grid}.movie{border-radius:22px}.movieText h2{font-size:44px}}
+</style>
+</head>
+<body>
+<div class="app">
+<section id="start" class="screen on card hero">
+<div class="eyebrow">10 вопросов • климат • вайб • жизнь</div>
+<h1>Где тебе жить?</h1>
+<p>Отвечай интуитивно. В конце тест определит страну и город, которые лучше всего совпадают с твоим вайбом.</p>
+<div class="badges"><span class="badge">🌧️ климат</span><span class="badge">🌲 природа</span><span class="badge">🏙️ город</span><span class="badge">✨ атмосфера</span></div>
+<button id="startBtn" class="btn primary start">Начать</button>
+</section>
+
+<section id="quiz" class="screen card">
+<div class="top"><span id="qnum">1 / 10</span><span id="theme">Климат</span></div>
+<div class="bar"><div id="fill" class="fill"></div></div>
+<div id="emoji" class="emoji">🌧️</div>
+<h2 id="qtext" class="question"></h2>
+<div id="answers" class="answers"></div>
+<button id="back" class="btn ghost back">Назад</button>
+</section>
+
+<section id="movie" class="screen movie">
+<img id="photo" alt="Forks, Washington">
+<div class="shade"></div>
+<div class="movieText">
+<div class="eyebrow">Результат найден</div>
+<h2 id="movieTitle">Есть только одно место.</h2>
+<p id="caption" class="caption"></p>
+<div class="controls"><button id="sound" class="btn ghost">🔊 Музыка</button><button id="skip" class="btn ghost">Пропустить</button></div>
+<div class="mbar"><div id="mfill" class="mfill"></div></div>
+<div class="credit">Фото: Wikimedia Commons • музыка: твой загруженный трек</div>
+</div>
+</section>
+
+<section id="fake" class="screen card result">
+<div class="eyebrow">Ну всё. Решено.</div>
+<h2>Forks, Washington 🇺🇸</h2>
+<p>Да. Форкс. Дождь, туман, мокрый асфальт, хвойный лес, серое небо и ощущение, что где-то рядом сейчас появится Эдвард Каллен. Ответы вообще не имели шансов против судьбы.</p>
+<div class="tags"><span class="badge">🌧️ дождь</span><span class="badge">🌲 лес</span><span class="badge">🌫️ туман</span><span class="badge">🍂 осенний вайб</span></div>
+<button id="realBtn" class="btn primary">Узнать реальный результат</button>
+</section>
+
+<section id="real" class="screen card result">
+<div class="eyebrow">Ладно, теперь реально</div>
+<h2 id="realCity"></h2>
+<p id="realText"></p>
+<div id="realTags" class="tags"></div>
+<button id="again" class="btn primary">Пройти ещё раз</button>
+</section>
+</div>
+
+<audio id="music" loop preload="auto" playsinline webkit-playsinline src="data:audio/mpeg;base64,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FlABM2dA3iIK9Qz6chYItKg0wKDGljtblrFLOWS2U9TydIbKiT2x+pfX/8yjElAzxLuW+ScSS1P8NL3bWS1Hsa3uOpyxvs602q48hWWW7a2bYAYPGERCuuSTAN1h55NtXyecm1b7j4PJRcrfDbhm55On/8yjEohABnrD2wwRQFXkGaF43zi+RCda7AmBQlKjwTQKoGnRPEjPWFn9HtM0c/P4ez3eJG+L2HWxPafeRiHQBXqRNryTeupz/8yjEnQywjwJeEkwK/tv2a+QVADsb11klvAGCxWma6ctG2Ziuujnr+v+zph/WIdOCbWfnVm40FXuglYNskdSnw9MFNr9Gow//8yjEpQ4AlrDswwwk7L6OjQDKQU0k+12tvAH4o6DwdBhzkroQUzIeL5lseU9mKsSEB6r2POfrT21YaGtdtH+7FNtvS7TqHe3/8yjEqA3QjrRUPhIE/q5ODCEzF3aDmmOAYgYhV27DH9NBZJwwzTQukhg1nK997JLgnumldaVXKuktq+3wa63rDnIn/qHeeV//8yjEqw6oru5eExIOriCpI7tbrtgB4cXWCHi88Yb2kev82T2JhEfMstzg9+qrw+SYealv3xf6dByHK2ft1bENiL6k1LTFMv7/8yjEqw3xNv5eM85iLwfdFuXsqTRE4upUpsWLbuQ18JKyI16V/sa9htkCGcz1a3yS7wL/e6mxWlVA9pxuRpwARhImH6AsjIf/8yjErg4xLqgqykRwZGBY8kUdJtwSzmtlt8rRgpQBbLY+DgIH8nrU6yb9379NqtP8mgCY0bY5bLQBgWDBMM5J/fpAeYqW1dL/8yjEsAv5uwJeGEUyxZ3EZguGPZKZ/232RZfW+0yfl6L8v3ZPU8tRW/9dQKsj1ttstAFAsVXOxahLFEIrEpuw4omEvL3OzA7/8yjEsw0YzwJeEY5uFhhSNKVsyB6u2RX8BBvkZxG09NroU3D/lVysOka0lF8+jyYn3KzHW8sv7//qO9LmdNXeWCnSmyfUOED/8yjEuQzBGrgowwpkYfO5A8FMhtXpl+5qz/0v1tfl1Ku2bQNm0mR9B/et7e6v0zrPR5T+j6//s//kVoLMUJQA0g+OEY4QhlL/8yjEwRCo0rwAwwxk2JgjNefUOCeeQNdkOxWFU0MVG52QjRhiYJiEVDo/KEqFyc0kIHQ7UjceZ57qWRdPRGRDzydW3/6Fs3X/8yjEuQ5I6sgAwYaQco1y7//la2XOeh4n/rYm8RvrQPQpNSsAMAYtJRJUlYGx7AuXW1lat9latqWBosDT+CrgaGA08qdKhqD/8yjEug241sgBWCgA0oGnrOlXf+IodUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/8yjEvhdZ7sABmVAAVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/8yjErAzAorQAC8YoVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/8yjEtAyAUhwAMlIgVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVU="></audio>
+
+<script>
+const qs=[
+["Климат","🌧️","Какой климат ты бы выбрала на большую часть года?",[
+["Прохладный, дождливый, туманный","Чтобы было атмосферно и хотелось укутаться.","north"],
+["Мягкий и морской","Ветер, вода рядом, без сильной жары.","sea"],
+["Тёплый и солнечный","Мне нужен свет, тепло и длинное лето.","sun"],
+["Чёткие четыре сезона","Хочу осень, снег, весну и лето.","classic"]]],
+["Природа","🌲","Что должно быть рядом с домом?",[
+["Леса и горы","Хвоя, туман, тропы, прохлада.","north"],
+["Море или океан","Вода сразу делает место лучше.","sea"],
+["Парки и зелень","Но чтобы город оставался городом.","classic"],
+["Мне важнее центр и движ","Природа — приятный бонус.","city"]]],
+["Ритм","⏳","Какой темп жизни тебе ближе?",[
+["Очень спокойный","Без вечной гонки и толп.","north"],
+["Спокойный, но не скучный","Чтобы было куда выйти.","sea"],
+["Сбалансированный","Работа, отдых, культура — всё рядом.","classic"],
+["Быстрый и насыщенный","Новые люди, события, места.","city"]]],
+["Эстетика","🕯️","Как выглядит идеальный город?",[
+["Туман, кирпич, лес, дождь","Чуть мрачно — зато красиво.","north"],
+["Вода, старые улицы, мягкий свет","Романтично и спокойно.","sea"],
+["Чисто, стильно, уютно","Скандинавский минимализм.","classic"],
+["Огни, высотки, ночная жизнь","Большой город должен ощущаться.","city"]]],
+["Выходной","☕","Идеальный выходной?",[
+["Кофе, плед, дождь за окном","Максимум уюта.","north"],
+["Долгая прогулка у воды","И потом вкусно поесть.","sea"],
+["Музей, красивый район, кафе","Люблю культурный день.","classic"],
+["Шопинг, бар, концерт","Главное — не сидеть дома.","city"]]],
+["Жильё","🏡","Где ты скорее представишь свой дом?",[
+["Небольшой дом рядом с лесом","Чуть в стороне от суеты.","north"],
+["Квартира с видом на воду","Много воздуха и света.","sea"],
+["Уютная квартира в красивом районе","Всё удобно и эстетично.","classic"],
+["Современная квартира в центре","Чтобы всё было в пешей доступности.","city"]]],
+["Люди","🫶","Какое окружение комфортнее?",[
+["Спокойное и ненавязчивое","Личное пространство важно.","north"],
+["Тёплое и расслабленное","Чтобы легко общаться.","sea"],
+["Вежливое и организованное","Комфорт и уважение к границам.","classic"],
+["Очень социальное","Нравится много знакомств.","city"]]],
+["Погода","🌫️","Серое небо несколько дней подряд — это…",[
+["Шикарно","Я буквально люблю такую погоду.","north"],
+["Нормально, если рядом море","В этом есть настроение.","sea"],
+["Иногда нормально","Но солнце тоже нужно.","classic"],
+["Нет, дайте свет","Мне быстро станет тяжело.","sun"]]],
+["Город","🌆","Что важнее всего в городе?",[
+["Атмосфера","Характер места важнее масштаба.","north"],
+["Красивые прогулки и еда","Хочу получать удовольствие каждый день.","sea"],
+["Комфорт и качество жизни","Транспорт, порядок, удобство.","classic"],
+["Возможности и энергия","Работа, люди, события.","city"]]],
+["Финал","✨","Выбери финальный вайб.",[
+["Мистичный и осенний","Как будто живёшь внутри фильма.","north"],
+["Романтичный и морской","Мягкий воздух и красивые вечера.","sea"],
+["Спокойный и эстетичный","Красиво, удобно, продуманно.","classic"],
+["Яркий и живой","Чтобы всегда что-то происходило.","city"]]]
+];
+
+const results={
+north:["Edinburgh, Scotland 🏴","Тебе подходит прохладный, атмосферный город с характером: старые улицы, ветер, пасмурное небо, зелень и ощущение истории.",["☁️ прохлада","🏰 характер","☕ уют"]],
+sea:["Porto, Portugal 🇵🇹","Твой вариант — город у воды с красивыми улицами, мягким ритмом и романтичной атмосферой. Живой, но без ощущения бесконечной гонки.",["🌊 вода","🍷 атмосфера","🌅 красивые вечера"]],
+sun:["Barcelona, Spain 🇪🇸","Тебе нужен свет, тепло и энергия вокруг. Много прогулок, людей, еды, событий и ощущение, что город постоянно живёт.",["☀️ солнце","🎉 энергия","🍸 жизнь"]],
+classic:["Copenhagen, Denmark 🇩🇰","Твой идеал — комфортный, красивый и организованный город, где качество жизни важнее хаоса и всё ощущается продуманно.",["⚖️ баланс","🕯️ эстетика","🚲 удобство"]],
+city:["Amsterdam, Netherlands 🇳🇱","Тебе подходит активный, стильный и социальный город: много движения, людей, идей и мест, но при этом он остаётся красивым и удобным.",["🌍 движение","🎨 стиль","🚲 город"]]
+};
+
+const slides=[
+["https://commons.wikimedia.org/wiki/Special:FilePath/Downtown_Forks_S.jpg?width=1600","Ты можешь сколько угодно выбирать климат…"],
+["https://commons.wikimedia.org/wiki/Special:FilePath/Forks_WA_Trail_in_Hoh_Forest.JPG?width=1400","…но лес уже всё решил за тебя."],
+["https://commons.wikimedia.org/wiki/Special:FilePath/Twilight_signs_in_Forks%2C_Washington.JPG?width=1600","Некоторые знаки слишком очевидны."],
+["https://commons.wikimedia.org/wiki/Special:FilePath/Field_in_Forks_with_elk.JPG?width=1600","Туман. Мокрая трава. Тишина."],
+["https://commons.wikimedia.org/wiki/Special:FilePath/Forks_WA_NE.jpg?width=1600","Где-то здесь начинается тот самый вайб."],
+["https://commons.wikimedia.org/wiki/Special:FilePath/Forks_WA_Downtown.JPG?width=1600","Финальный ответ был известен с самого начала."]
+];
+
+const $=id=>document.getElementById(id);
+const screens=["start","quiz","movie","fake","real"];
+let qi=0,answers=Array(10).fill(null),scores={north:0,sea:0,sun:0,classic:0,city:0},timer=null,si=0;
+const music=$("music"); music.volume=.72;
+
+function show(id){screens.forEach(x=>$(x).classList.remove("on"));$(id).classList.add("on");scrollTo(0,0)}
+function prime(){music.play().then(()=>{music.pause();music.currentTime=0}).catch(()=>{})}
+function draw(){
+ const q=qs[qi]; $("qnum").textContent=(qi+1)+" / 10"; $("theme").textContent=q[0]; $("fill").style.width=((qi+1)*10)+"%"; $("emoji").textContent=q[1]; $("qtext").textContent=q[2];
+ $("answers").innerHTML="";
+ q[3].forEach((a,i)=>{const b=document.createElement("button");b.className="answer";b.innerHTML="<b>"+a[0]+"</b><span>"+a[1]+"</span>";b.onclick=()=>pick(i);$("answers").appendChild(b)});
+ $("back").style.visibility=qi?"visible":"hidden";
+}
+function rebuildScores(){scores={north:0,sea:0,sun:0,classic:0,city:0};answers.forEach((v,i)=>{if(v!==null)scores[qs[i][3][v][2]]++})}
+function pick(i){answers[qi]=i;if(qi<9){qi++;draw()}else{rebuildScores();startMovie()}}
+function realResult(){let key="classic",max=-1;Object.keys(scores).forEach(k=>{if(scores[k]>max){max=scores[k];key=k}});return results[key]}
+function setSlide(){
+ const p=$("photo");p.style.opacity=0;p.style.transform="scale(1.045)";
+ setTimeout(()=>{p.src=slides[si][0];$("caption").textContent=slides[si][1];p.onload=()=>{p.style.opacity=1;p.style.transform="scale(1)"}} ,140);
+ $("mfill").style.width=((si+1)/slides.length*100)+"%";
+}
+function startMovie(){show("movie");si=0;setSlide();music.currentTime=0;music.play().catch(()=>{});clearInterval(timer);timer=setInterval(()=>{si++;if(si>=slides.length){endMovie()}else setSlide()},2600)}
+function endMovie(){clearInterval(timer);show("fake")}
+$("startBtn").onclick=()=>{prime();show("quiz");draw()};
+$("back").onclick=()=>{if(qi){qi--;draw()}};
+$("skip").onclick=endMovie;
+$("sound").onclick=()=>{if(music.paused){music.play().catch(()=>{});$("sound").textContent="🔊 Музыка"}else{music.pause();$("sound").textContent="🔇 Музыка"}};
+$("realBtn").onclick=()=>{const r=realResult();$("realCity").textContent=r[0];$("realText").textContent=r[1];$("realTags").innerHTML=r[2].map(x=>'<span class="badge">'+x+'</span>').join("");music.pause();show("real")};
+$("again").onclick=()=>{music.pause();music.currentTime=0;qi=0;answers=Array(10).fill(null);scores={north:0,sea:0,sun:0,classic:0,city:0};show("start")};
+</script>
+</body>
+</html>
